@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "loopcache"
+version = "0.1.0"
+description = "Long-context self-speculative decoding for looped transformers"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.9.1",
+    "triton>=3.5",
+    "transformers==4.55.0",
+    "huggingface-hub>=0.34,<1",
+    "accelerate>=1.10",
+    "einops>=0.8",
+    "sentencepiece>=0.2",
+]
+
+[project.scripts]
+loopcache = "loopcache.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["loopcache*"]
